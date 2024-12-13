@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1047009280212",
+    "project_id": "asoavicola-109e2",
+    "storage_bucket": "asoavicola-109e2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047009280212:android:2976f1c4c1c6ce1ec0fb41",
+        "android_client_info": {
+          "package_name": "com.example.avanceproyectov2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUqr4KGuqMKdx9E-_s1i8SGH54wdZ3MS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
