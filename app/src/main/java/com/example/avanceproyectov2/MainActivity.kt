@@ -23,6 +23,7 @@ class MainActivity : ComponentActivity() {
     private val gestionRutas = GestionRutas()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //llkdldkdlskdlskdlskdl
         super.onCreate(savedInstanceState)
         Firebase.initialize(this)
         setContent {
