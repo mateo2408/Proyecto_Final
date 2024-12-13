@@ -10,6 +10,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import com.example.avanceproyectov2.gestion.GestionPedidos
+import com.example.avanceproyectov2.gestion.GestionRutas
+import com.example.avanceproyectov2.pantallas.NavGraph
 import com.example.avanceproyectov2.ui.theme.AvanceProyectoTheme
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.ktx.initialize

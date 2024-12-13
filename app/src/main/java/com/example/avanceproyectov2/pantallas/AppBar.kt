@@ -1,5 +1,5 @@
 // AppBar.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.pantallas
 
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api

@@ -1,5 +1,5 @@
 // PantallaNavegacion.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.pantallas
 
 import android.app.Activity
 import android.content.Intent
@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.avanceproyectov2.clases.SelectLocationActivity
 
 @Composable
 fun PantallaNavegacion(navController: NavController) {

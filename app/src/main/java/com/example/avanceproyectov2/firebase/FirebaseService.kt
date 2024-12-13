@@ -1,4 +1,6 @@
-import com.example.avanceproyectov2.User
+package com.example.avanceproyectov2.firebase
+
+import com.example.avanceproyectov2.clases.User
 import com.google.firebase.firestore.FirebaseFirestore
 
 data class User(val nombre: String, val cedula: String, val correo: String, val telefono: String)

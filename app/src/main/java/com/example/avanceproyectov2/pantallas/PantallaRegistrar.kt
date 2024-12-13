@@ -1,4 +1,4 @@
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.pantallas
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
@@ -14,8 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import registerUser
-import saveUserData
+import com.example.avanceproyectov2.clases.User
+import com.example.avanceproyectov2.firebase.registerUser
+import com.example.avanceproyectov2.firebase.saveUserData
 
 @Composable
 fun PantallaRegistrar(navController: NavController) {

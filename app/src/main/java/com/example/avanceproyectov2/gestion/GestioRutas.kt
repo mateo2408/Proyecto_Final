@@ -1,4 +1,6 @@
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.gestion
+
+import com.example.avanceproyectov2.clases.Pedido
 
 class GestionRutas {
     fun obtenerPedidos(callback: (List<Pedido>) -> Unit) {

@@ -1,5 +1,7 @@
 // GestionClientes.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.gestion
+
+import com.example.avanceproyectov2.clases.Cliente
 
 class GestionClientes {
     private val clientes = mutableListOf<Cliente>()

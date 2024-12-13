@@ -1,5 +1,5 @@
 // Ruta.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.clases
 
 data class Ruta(
     val id: String,

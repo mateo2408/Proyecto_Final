@@ -1,8 +1,9 @@
 // LoginActivity.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.clases
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.avanceproyectov2.R
 
 class LoginActivity : AppCompatActivity() {
 

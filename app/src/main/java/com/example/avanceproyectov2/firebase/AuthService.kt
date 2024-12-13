@@ -1,3 +1,5 @@
+package com.example.avanceproyectov2.firebase
+
 import com.google.firebase.auth.FirebaseAuth
 
 fun registerUser(email: String, password: String, onComplete: (Boolean) -> Unit) {

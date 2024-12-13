@@ -1,5 +1,5 @@
 // Pedido.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.clases
 
 data class Pedido(
     val id: String = "",

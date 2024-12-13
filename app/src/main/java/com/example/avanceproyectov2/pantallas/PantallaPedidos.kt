@@ -1,4 +1,4 @@
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.pantallas
 
 import android.app.Activity
 import android.content.Intent
@@ -13,7 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.avanceproyectov2.Pedido
+import com.example.avanceproyectov2.gestion.GestionPedidos
+import com.example.avanceproyectov2.clases.Pedido
+import com.example.avanceproyectov2.clases.SelectLocationActivity
+import com.example.avanceproyectov2.firebase.savePedido
 
 @Composable
 fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos) {

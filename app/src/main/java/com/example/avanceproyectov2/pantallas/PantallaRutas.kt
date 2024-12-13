@@ -1,4 +1,4 @@
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.pantallas
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +11,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.avanceproyectov2.gestion.GestionRutas
+import com.example.avanceproyectov2.clases.Pedido
 
 @Composable
 fun PantallaRutas(navController: NavController, gestionRutas: GestionRutas) {

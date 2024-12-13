@@ -1,5 +1,5 @@
 // Grafo.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.clases
 
 class Grafo {
     private val adyacencias: MutableMap<String, MutableList<String>> = mutableMapOf()

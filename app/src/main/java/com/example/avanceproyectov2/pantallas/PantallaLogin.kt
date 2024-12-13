@@ -1,5 +1,5 @@
-// PantallaInicioSesion.kt
-package com.example.avanceproyectov2
+// PantallaLogin.kt
+package com.example.avanceproyectov2.pantallas
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
@@ -16,10 +16,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-
 @Composable
-fun PantallaInicioSesion(navController: NavController) {
+fun PantallaLogin(navController: NavController) {
     val context = LocalContext.current
     val username = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }
@@ -38,7 +36,6 @@ fun PantallaInicioSesion(navController: NavController) {
             value = password.value,
             onValueChange = { password.value = it },
             label = { Text("Contraseña") },
-            visualTransformation = PasswordVisualTransformation(),
             modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
         )
 

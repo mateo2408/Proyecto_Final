@@ -1,5 +1,7 @@
 // GestionPedidos.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.gestion
+
+import com.example.avanceproyectov2.clases.Pedido
 
 class GestionPedidos {
     private val pedidos = mutableListOf<Pedido>()

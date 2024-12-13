@@ -1,5 +1,5 @@
 // Cliente.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.clases
 
 data class Cliente(
     val id: String,

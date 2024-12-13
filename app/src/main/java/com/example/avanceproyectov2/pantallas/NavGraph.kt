@@ -1,11 +1,13 @@
 // NavGraph.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.pantallas
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.avanceproyectov2.gestion.GestionPedidos
+import com.example.avanceproyectov2.gestion.GestionRutas
 
 @Composable
 fun NavGraph(

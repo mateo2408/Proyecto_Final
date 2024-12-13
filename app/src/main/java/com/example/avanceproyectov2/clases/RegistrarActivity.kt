@@ -1,5 +1,5 @@
 // PantallaRegistrar.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.clases
 
 import android.os.Bundle
 import android.widget.Button
@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavHostController
+import com.example.avanceproyectov2.R
 
 class RegistrarActivity(navController: NavHostController) : AppCompatActivity() {
 

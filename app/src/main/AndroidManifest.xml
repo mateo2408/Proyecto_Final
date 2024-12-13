@@ -25,11 +25,11 @@
         </activity>
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".clases.LoginActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <activity
-            android:name=".SelectLocationActivity"
+            android:name=".clases.SelectLocationActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <meta-data

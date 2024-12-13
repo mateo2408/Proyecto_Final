@@ -1,5 +1,5 @@
 // PantallaPrincipal.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.pantallas
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

@@ -1,7 +1,7 @@
 // Algoritmos.kt
-package com.example.avanceproyectov2
+package com.example.avanceproyectov2.algoritmo
 
-import com.example.avanceproyectov2.Pedido
+import com.example.avanceproyectov2.clases.Pedido
 
 fun buscarPedidoPorId(pedidos: List<Pedido>, id: String): Pedido? {
     return pedidos.find { it.id == id }
