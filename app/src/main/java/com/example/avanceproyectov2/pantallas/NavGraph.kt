@@ -20,9 +20,10 @@ fun NavGraph(
         composable("pantallaPrincipal") { PantallaPrincipal(navController, gestionPedidos, gestionRutas) }
         composable("pantallaRegistrar") { PantallaRegistrar(navController) }
         composable("pantallaPedidos") { PantallaPedidos(navController, gestionPedidos) }
-        composable("pantallaRutas") { PantallaRutas(navController, gestionRutas) } // Corrected route name
+        composable("pantallaRutas") { PantallaRutas(navController, gestionRutas) }
         composable("pantallaMapa") { PantallaMapa(navController) }
         composable("pantallaNavegacion") { PantallaNavegacion(navController) }
         composable("pantallaInicioSesion") { PantallaInicioSesion(navController) }
+        composable("pantallaFactura") { PantallaFactura(navController) } // Added route for PantallaFactura
     }
 }
