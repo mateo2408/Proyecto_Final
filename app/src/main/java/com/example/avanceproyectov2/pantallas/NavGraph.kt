@@ -1,4 +1,3 @@
-// NavGraph.kt
 package com.example.avanceproyectov2.pantallas
 
 import androidx.compose.runtime.Composable
@@ -16,14 +15,14 @@ fun NavGraph(
     gestionRutas: GestionRutas,
     modifier: Modifier = Modifier
 ) {
-    NavHost(navController = navController, startDestination = "pantallaPrincipal", modifier = modifier) {
-        composable("pantallaPrincipal") { PantallaPrincipal(navController) }
-        composable("pantallaInicioSesion") { PantallaInicioSesion(navController) }
+    NavHost(navController = navController, startDestination = "pantallaLogin", modifier = modifier) {
+        composable("pantallaLogin") { PantallaLogin(navController) }
+        composable("pantallaPrincipal") { PantallaPrincipal(navController, gestionPedidos, gestionRutas) }
+        composable("pantallaRegistrar") { PantallaRegistrar(navController) }
         composable("pantallaPedidos") { PantallaPedidos(navController, gestionPedidos) }
-        composable("pantallaRutas") { PantallaRutas(navController, gestionRutas) }
+        composable("pantallaRutas") { PantallaRutas(navController, gestionRutas) } // Corrected route name
         composable("pantallaMapa") { PantallaMapa(navController) }
         composable("pantallaNavegacion") { PantallaNavegacion(navController) }
-        composable("pantallaRegistrar") { PantallaRegistrar(navController) }
-        composable("pantallaLogin") { PantallaLogin(navController) }
+        composable("pantallaInicioSesion") { PantallaInicioSesion(navController) }
     }
 }

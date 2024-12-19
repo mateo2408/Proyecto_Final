@@ -1,4 +1,3 @@
-// PantallaLogin.kt
 package com.example.avanceproyectov2.pantallas
 
 import android.widget.Toast
@@ -15,12 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun PantallaLogin(navController: NavController) {
     val context = LocalContext.current
     val username = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }
+    val auth = FirebaseAuth.getInstance()
 
     Column(modifier = Modifier.padding(16.dp)) {
         Text(text = "Pantalla de Inicio de Sesión")
@@ -29,35 +30,59 @@ fun PantallaLogin(navController: NavController) {
             value = username.value,
             onValueChange = { username.value = it },
             label = { Text("Nombre de Usuario") },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
         )
 
         OutlinedTextField(
             value = password.value,
             onValueChange = { password.value = it },
             label = { Text("Contraseña") },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
         )
 
         Button(
             onClick = {
                 if (username.value.isNotEmpty() && password.value.isNotEmpty()) {
-                    Toast.makeText(context, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
-                    navController.navigate("pantallaPrincipal") {
-                        popUpTo("pantallaPrincipal") { inclusive = true }
-                    }
+                    auth.signInWithEmailAndPassword(username.value, password.value)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                Toast.makeText(context, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
+                                navController.navigate("pantallaPrincipal") {
+                                    popUpTo("pantallaPrincipal") { inclusive = true }
+                                }
+                            } else {
+                                Toast.makeText(context, "Error de autenticación", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                 } else {
                     Toast.makeText(context, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
                 }
             },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
         ) {
             Text("Iniciar Sesión")
         }
 
         Button(
+            onClick = { navController.navigate("pantallaRegistrar") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        ) {
+            Text("Registrar")
+        }
+
+        Button(
             onClick = { navController.popBackStack() },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
         ) {
             Text("Regresar")
         }

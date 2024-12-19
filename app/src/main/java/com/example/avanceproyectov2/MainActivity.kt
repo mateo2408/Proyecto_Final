@@ -1,4 +1,3 @@
-// MainActivity.kt
 package com.example.avanceproyectov2
 
 import android.os.Bundle
