@@ -149,6 +149,11 @@ fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos
                     fetchPedidosByCedula(searchCedula) { fetchedPedidos ->
                         pedidos.clear()
                         pedidos.addAll(fetchedPedidos)
+                        if (fetchedPedidos.isNotEmpty()){
+                            nombreCliente = fetchedPedidos[0].nombreCliente
+                        }else{
+                            nombreCliente = ""
+                        }
                     }
                 },
                 modifier = Modifier.fillMaxWidth()
