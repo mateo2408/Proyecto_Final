@@ -16,6 +16,7 @@ import androidx.navigation.NavController
 import com.example.avanceproyectov2.gestion.GestionPedidos
 import com.example.avanceproyectov2.clases.Pedido
 import com.example.avanceproyectov2.clases.SelectLocationActivity
+import com.example.avanceproyectov2.firebase.fetchPedidosByCedula
 import com.example.avanceproyectov2.firebase.savePedido
 
 @Composable
@@ -26,6 +27,8 @@ fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos
     var ubicacion by remember { mutableStateOf("") }
     var cantidadProductos by remember { mutableStateOf("") }
     var ruta by remember { mutableStateOf("") }
+    var cedula by remember { mutableStateOf("") }
+    var searchCedula by remember { mutableStateOf("") }
     var selectedPedido by remember { mutableStateOf<Pedido?>(null) }
     val pedidos = remember { mutableStateListOf<Pedido>() }
     LaunchedEffect(Unit) {
@@ -45,7 +48,7 @@ fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos
             TextField(
                 value = descripcion,
                 onValueChange = { descripcion = it },
-                label = {Text("Descripción") },
+                label = { Text("Descripción") },
                 modifier = Modifier.fillMaxWidth()
             )
             TextField(
@@ -58,6 +61,12 @@ fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos
                 value = nombreCliente,
                 onValueChange = { nombreCliente = it },
                 label = { Text("Nombre del Cliente") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            TextField(
+                value = cedula,
+                onValueChange = { cedula = it },
+                label = { Text("Cedula") },
                 modifier = Modifier.fillMaxWidth()
             )
             Button(
@@ -88,11 +97,13 @@ fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos
                         descripcion = descripcion,
                         estado = estado,
                         nombreCliente = nombreCliente,
-                        ubicacion = ubicacion,cantidadProductos = cantidadProductos,
-                        ruta = ruta
+                        ubicacion = ubicacion,
+                        cantidadProductos = cantidadProductos,
+                        ruta = ruta,
+                        cedula = cedula
                     )
                     if (selectedPedido == null) {
-                        savePedido(pedido) { success ->
+                        savePedido(pedido, cedula) { success ->
                             if (success) {
                                 pedidos.add(pedido)
                                 descripcion = ""
@@ -101,6 +112,7 @@ fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos
                                 ubicacion = ""
                                 cantidadProductos = ""
                                 ruta = ""
+                                cedula = ""
                             }
                         }
                     } else {
@@ -117,12 +129,31 @@ fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos
                                 ubicacion = ""
                                 cantidadProductos = ""
                                 ruta = ""
+                                cedula = ""
                             }
                         }
                     }
-                },    modifier = Modifier.fillMaxWidth()
+                },
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Text(if (selectedPedido == null) "Agregar Pedido" else "Actualizar Pedido")
+            }
+            TextField(
+                value = searchCedula,
+                onValueChange = { searchCedula = it },
+                label = { Text("Buscar por Cedula") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Button(
+                onClick = {
+                    fetchPedidosByCedula(searchCedula) { fetchedPedidos ->
+                        pedidos.clear()
+                        pedidos.addAll(fetchedPedidos)
+                    }
+                },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Buscar")
             }
             LazyColumn(modifier = Modifier.weight(1f)) {
                 items(pedidos) { pedido ->
@@ -133,6 +164,7 @@ fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos
                         Text(text = "Ubicación: ${pedido.ubicacion}", style = MaterialTheme.typography.bodyLarge)
                         Text(text = "Cantidad: ${pedido.cantidadProductos}", style = MaterialTheme.typography.bodyLarge)
                         Text(text = "Ruta: ${pedido.ruta}", style = MaterialTheme.typography.bodyLarge)
+                        Text(text = "Cedula: ${pedido.cedula}", style = MaterialTheme.typography.bodyLarge)
                         Button(onClick = {
                             selectedPedido = pedido
                             descripcion = pedido.descripcion
@@ -141,8 +173,10 @@ fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos
                             ubicacion = pedido.ubicacion
                             cantidadProductos = pedido.cantidadProductos
                             ruta = pedido.ruta
+                            cedula = pedido.cedula
                         }) {
-                            Text("Editar")   }
+                            Text("Editar")
+                        }
                     }
                 }
             }
