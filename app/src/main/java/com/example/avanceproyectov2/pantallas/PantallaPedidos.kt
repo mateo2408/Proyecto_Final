@@ -16,6 +16,7 @@ import androidx.navigation.NavController
 import com.example.avanceproyectov2.gestion.GestionPedidos
 import com.example.avanceproyectov2.clases.Pedido
 import com.example.avanceproyectov2.clases.SelectLocationActivity
+import com.example.avanceproyectov2.firebase.compareCedula
 import com.example.avanceproyectov2.firebase.fetchPedidosByCedula
 import com.example.avanceproyectov2.firebase.savePedido
 
@@ -145,21 +146,24 @@ fun PantallaPedidos(navController: NavController, gestionPedidos: GestionPedidos
                 modifier = Modifier.fillMaxWidth()
             )
             Button(
-                onClick = {
-                    fetchPedidosByCedula(searchCedula) { fetchedPedidos ->
-                        pedidos.clear()
-                        pedidos.addAll(fetchedPedidos)
-                        if (fetchedPedidos.isNotEmpty()){
-                            nombreCliente = fetchedPedidos[0].nombreCliente
-                        }else{
-                            nombreCliente = ""
-                        }
-                    }
-                },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("Buscar")
+    onClick = {
+        compareCedula(searchCedula) { userExists, userName ->
+            if (userExists) {
+                fetchPedidosByCedula(searchCedula) { fetchedPedidos ->
+                    pedidos.clear()
+                    pedidos.addAll(fetchedPedidos)
+                    nombreCliente = userName ?: ""
+                }
+            } else {
+                pedidos.clear()
+                nombreCliente = ""
             }
+        }
+    },
+    modifier = Modifier.fillMaxWidth()
+) {
+    Text("Buscar")
+}
             LazyColumn(modifier = Modifier.weight(1f)) {
                 items(pedidos) { pedido ->
                     Column(modifier = Modifier.padding(8.dp)) {
